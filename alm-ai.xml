@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+            
+<Module specificationVersion="v1.0.0">
+    <ModulePrefs title="ALM AI (v1.0.0 07/25/2024)"
+        width="500"
+        height="580"        
+        scrolling="true">
+        <Require  feature="setprefs"/>
+        <Optional feature="com.ibm.rdm.rm.api" />
+        <Optional feature="com.ibm.team.process.ProjectArea" />
+        <Require feature="dynamic-height" />
+    </ModulePrefs>              
+
+    <Content type="text/html; charset=utf-8" href="alm-ai.html" />
+</Module>

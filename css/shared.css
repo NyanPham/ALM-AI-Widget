@@ -1,0 +1,689 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    --primary-btn-background: #0f62fe;
+    --danger-btn-background: #ff3737;
+    --warning-btn-background: rgb(220, 128, 1);
+    --success-btn-background: rgb(12, 213, 96);
+    --disabled-btn-background: #c6c6c6;
+    --disabled-btn-color: #8d8d8d;
+    --secondary-btn-background: #393939;
+
+    --header-background: #545559;
+    --header-color: #fff;
+
+    --scrollbar-track-bacground: #f3f3f3;
+    --scrollbar-thumb-background: #777;
+    --scrollbar-thumb-hover-background: #555;
+    --scrollbar-width: 7px;
+
+    --danger-light-background: #fec3c3;
+    --danger-text-color: #a40000;
+    --danger-border-color: #a40000;
+
+    --warning-background: #ffffe1;
+    --warning-border: #fdd403;
+    --warning-text-color: #9b8401;
+    --warning-progress-color: #9b8401;
+
+    --danger-background: #ffe6e6;
+    --danger-border: #ff3737;
+    --danger-text-color: #cf0000;
+    --danger-progress-color: #cf0000;
+
+    --info-background: #e4edfe;
+    --info-border: #0f62fe;
+    --info-text-color: #003eb3;
+    --info-progress-color: #003eb3;
+
+    --success-background: rgb(220, 250, 218);
+    --success-border: #00ff6a;
+    --success-text-color: #009f42;
+    --success-progress-color: #009f42;
+
+    user-select: none;
+}
+
+.textarea {
+    resize: none;
+}
+
+.textarea.resize-x {
+    resize: horizontal;
+}
+
+.textarea.resize-y {
+    resize: vertical;
+}
+
+.textarea.resize-x.resize-y {
+    resize: both;
+}
+
+.relative {
+    position: relative;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background: none;
+    outline: none;
+
+    padding: 0.45rem 0.9rem;
+    border-radius: 3px;
+    color: white;
+    background: var(--primary-btn-background);
+
+    cursor: pointer;
+
+    transition-property: box-shadow, transform, background;
+    transition-duration: 250ms;
+    transition-timing-function: ease-in-out;
+
+    will-change: transform;
+}
+
+.btn.circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    padding: 0;
+    text-align: center;
+}
+
+.btn-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+}
+
+.btn:not(:disabled):hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 10px 0px rgba(0, 0, 0, 0.1);
+}
+
+.btn.secondary {
+    background: var(--secondary-btn-background);
+}
+
+.btn.danger {
+    background: var(--danger-btn-background);
+}
+
+.btn:disabled {
+    cursor: not-allowed;
+    color: var(--disabled-btn-color);
+    background: var(--disabled-btn-background);
+}
+
+.label {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+label {
+    user-select: none;
+}
+
+.d-none {
+    display: none !important;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.container {
+    padding: 1rem;
+}
+
+.container.d-none {
+    display: none;
+}
+
+.main {
+    padding-top: 0.25rem;
+    position: relative;
+}
+
+.block {
+    display: block;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.justify-start {
+    justify-content: flex-start;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.gap-4 {
+    gap: 1rem;
+}
+
+.gap-3 {
+    gap: 0.75rem;
+}
+
+.gap-2 {
+    gap: 0.5rem;
+}
+
+.gap-1 {
+    gap: 0.25rem;
+}
+
+.gap-0 {
+    gap: 0;
+}
+
+.grid {
+    --col-count: 1;
+
+    display: grid;
+    grid-template-columns: repeat(var(--col-count), 1fr);
+}
+
+.col-2 {
+    --col-count: 2;
+}
+
+.col-3 {
+    --col-count: 3;
+}
+
+.col-4 {
+    --col-count: 4;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mt-1 {
+    margin-top: 0.5rem;
+}
+
+.mt-2 {
+    margin-top: 1rem;
+}
+
+.mb-1 {
+    margin-bottom: 0.5rem;
+}
+
+.mb-2 {
+    margin-bottom: 1rem;
+}
+
+.ml-2 {
+    margin-left: 1rem;
+}
+
+.mr-1 {
+    margin-right: 0.5rem;
+}
+
+/* START: Animated checkbox */
+.checkbox-wrapper *,
+.checkbox-wrapper *:after,
+.checkbox-wrapper *:before {
+    box-sizing: border-box;
+}
+
+.checkbox-wrapper input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.checkbox-wrapper input:checked + label svg path {
+    stroke-dashoffset: 0;
+}
+
+.checkbox-wrapper input:focus + label {
+    transform: scale(1.03);
+}
+
+.checkbox-wrapper input + label {
+    display: block;
+    border: 2px solid #333;
+    width: var(--size);
+    height: var(--size);
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.checkbox-wrapper input:checked + label {
+    border-color: var(--primary-btn-background);
+}
+
+.checkbox-wrapper input + label:active {
+    transform: scale(1.05);
+    border-radius: 12px;
+}
+
+.checkbox-wrapper input + label svg {
+    pointer-events: none;
+    padding: 5%;
+}
+
+.checkbox-wrapper input + label svg path {
+    fill: none;
+    stroke: var(--primary-btn-background);
+    stroke-width: 4px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 100;
+    stroke-dashoffset: 101;
+    transition: all 250ms cubic-bezier(1, 0, 0.37, 0.91);
+}
+
+/* END: Animated checkbox */
+
+/* START: X Close button of Dialogs */
+.x-close-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: none;
+    background: none;
+    font-size: 1.5rem;
+    height: 100%;
+    aspect-ratio: 1/1;
+    cursor: pointer;
+    transition: background 250ms ease-in-out;
+}
+
+.x-close-btn:hover {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.x-close-btn:active {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+@supports selector(:has(*)) {
+    .x-close-btn.outer-btn {
+        --outer-btn-size: 30;
+        --outer-btn-width: var(--outer-btn-size);
+        --outer-btn-height: var(--outer-btn-size);
+
+        width: calc(var(--outer-btn-width) * 1px);
+        height: calc(var(--outer-btn-height) * 1px);
+        position: absolute;
+        top: calc(-1px * var(--outer-btn-height) / 2);
+        right: calc(-1px * var(--outer-btn-width) / 2);
+        background: black;
+        color: white;
+        transition: transform 300ms ease-in-out;
+        will-change: transform;
+    }
+
+    .x-close-btn.outer-btn:hover {
+        transform: scale(1.1);
+    }
+}
+
+/* END: X Close button of Dialogs */
+
+/* START: Log */
+.log-item {
+    --ver-padding: 0.5rem;
+    --hor-padding: 0.75rem;
+
+    padding: var(--ver-padding) var(--hor-padding);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.log-item:last-of-type {
+    border-bottom: none;
+}
+
+.log-item[data-type="SUCCESS"] {
+    background-color: rgba(7, 149, 66, 0.12156862745098039);
+    color: #0ad406;
+}
+
+.log-item[data-type="ERROR"] {
+    background-color: rgba(220, 17, 1, 0.16);
+    color: #ff0303;
+}
+
+.event-log-progress {
+    --width: 0;
+    --event-progress-color: var(--primary-btn-background);
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: calc(var(--width) * 1%);
+    max-width: 100%;
+    background: var(--event-progress-color);
+    will-change: width;
+    transition: width 150ms ease-in-out, background 200ms ease-in-out;
+}
+/* END: Log */
+
+.draggable {
+    cursor: move;
+}
+
+.grow-1 {
+    flex-grow: 1;
+}
+
+.grow-0 {
+    flex-grow: 0;
+}
+
+#main {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#main.d-none {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 250ms ease-in-out;
+}
+
+/* START: Date picker */
+.datepicker-toggle {
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+}
+
+.datepicker-toggle-button {
+    width: 18px;
+    height: 18px;
+    background-image: url(../assets/calendar-regular.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.datepicker-input {
+    opacity: 0;
+    pointer-events: none;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.datepicker-input.picked {
+    opacity: 1;
+    pointer-events: auto;
+}
+/* END: Date picker */
+
+/* START: Form */
+.form-body {
+    padding: 0.5rem 0.75rem;
+}
+
+.form-heading,
+.form-footer {
+    padding: 0.75rem;
+}
+
+.form-heading {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+    position: relative;
+}
+/* END: Form */
+
+/* START: Tabs */
+.tab {
+    background: none;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+    transition: color 250ms ease;
+}
+
+.tab.selected {
+    color: violet;
+}
+
+/* END: Tabs */
+
+/* START: Form  */
+.fieldset {
+    padding: 1rem 0.75rem;
+    border-radius: 3px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.form-group.d-none {
+    display: none;
+}
+
+.form-group + .form-group {
+    margin-top: 1rem;
+}
+
+.form-group.flex-row {
+    flex-direction: row;
+}
+
+.input,
+.textarea {
+    --ring-offset: 0.25rem;
+    --border-radius: 3px;
+
+    background: none;
+    border: none;
+    padding: 0.3rem 0.5rem;
+    font-size: 0.9rem;
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    outline: none;
+
+    transition-property: outline;
+    transition-duration: 250ms;
+    transition-timing-function: ease-in-out;
+
+    position: relative;
+    overflow: visible;
+    cursor: pointer;
+}
+
+.input:focus,
+.textarea:focus {
+    outline: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.input::after {
+    content: "";
+    position: absolute;
+    top: calc(var(--ring-offset) * -1);
+    left: calc(var(--ring-offset) * -1);
+    height: calc(var(--ring-offset) * 2 + 100%);
+    width: calc(var(--ring-offset) * 2 + 100%);
+    border: 2px solid;
+    border-radius: calc(var(--ring-offset) + var(--border-radius));
+    transform: scale(0.95);
+    opacity: 0;
+    transition: transform 250ms ease, opacity 150ms ease;
+}
+
+input:focus::after,
+input.invalid::after {
+    opacity: 1;
+    transform: scale(1);
+}
+
+input:not(.invalid)::after {
+    border-color: var(--primary-btn-background);
+}
+
+input.invalid::after {
+    border-color: var(--danger-btn-background);
+}
+
+input::placeholder {
+    font-style: italic;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+/* END: Form  */
+
+/* START: Reuseable transition for hover */
+.hover-hightlight {
+    --translate-x: 0;
+    --translate-y: 0;
+    --box-shadow: none;
+    --background: none;
+
+    transform: translateX(calc(var(--translate-x) * 1px)) translateY(calc(var(--translate-y) * 1px));
+    background: var(--background);
+    box-shadow: var(--box-shadow);
+    transition-property: background, box-shadow, transform;
+    transition-duration: 250ms;
+    transition-timing-function: ease-in-out;
+}
+
+.hover-hightlight:not(:disabled)[data-hover-background]:hover {
+    --background: rgba(0, 0, 0, 0, 1);
+}
+
+.hover-hightlight:not(:disabled)[data-hover-trans-y]:hover {
+    --translate-y: -1;
+}
+
+.hover-hightlight:not(:disabled)[data-hover-trans-x]:hover {
+    --translate-x: 2;
+}
+
+.hover-hightlight:not(:disabled)[data-hover-shadow]:hover {
+    --box-shadow: 0px 2px 10px 5px rgba(0, 0, 0, 0.3);
+}
+/* END: Reuseable transition for hover */
+
+/* START: Details and Summary */
+details {
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    padding: 0.5rem 0.5rem 0;
+}
+
+summary {
+    font-weight: bold;
+    margin: -0.5rem -0.5rem 0;
+    padding: 0.5rem;
+}
+
+details[open] {
+    padding: 0.5rem;
+}
+
+details[open] summary {
+    border-bottom: 1px solid #aaa;
+    /* margin-bottom: 0.5em; */
+}
+
+details summary {
+    cursor: pointer;
+    transition-property: background-color, color, border-color;
+    transition-timing-function: ease-in-out;
+    transition-duration: 250ms;
+}
+
+details:has(.checkbox-input[data-type="update"]:checked) summary {
+    background: var(--primary-btn-background);
+    border-color: var(--primary-btn-background);
+    color: white;
+}
+    
+details:has(.checkbox-input[data-type="remove"]:checked) summary {
+    background: var(--disabled-btn-background);
+    border-color: var(--disabled-btn-background);
+    color: white;
+}
+
+details > div {
+    overflow: hidden;
+    display: grid;
+    /* intentionally independent from .animation as Safari 16
+    would otherwise ignore the expansion animation. */
+    animation-duration: 300ms;
+}
+
+details > .animation {
+    animation-name: grid-expand;
+    animation-timing-function: ease-out;
+}
+
+details > .collapsing {
+    animation-direction: reverse;
+    animation-timing-function: ease-in;
+}
+
+details > div > div {
+    min-height: 0;
+}
+
+@keyframes grid-expand {
+    0% {
+        grid-template-rows: 0fr;
+    }
+    100% {
+        grid-template-rows: 1fr;
+    }
+}
+
+/* END: Details and Summary */

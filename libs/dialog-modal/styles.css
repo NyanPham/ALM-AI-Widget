@@ -1,0 +1,95 @@
+/* START: Dialog Modal */
+.dialog-modal {
+    --top: 3rem;
+    --left: 50%;
+    --scale: 1;
+    --translate-x: -50%;
+    --opacity: 1;
+    --transition-duration: 300;
+    --width: 70%;
+
+    top: var(--top);
+    left: var(--left);
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.3);
+    width: var(--width);
+    opacity: var(--opacity);
+    transform: translateX(var(--translate-x)) scale(var(--scale));
+    transition: transform calc(var(--transition-duration) * 1ms) ease-in-out, opacity calc(var(--transition-duration) * 1ms) ease-in-out;
+    user-select: none;
+}
+
+.dialog-modal.wide {
+    --width: 90%;
+}
+
+.dialog-modal.medium {
+    --width: 80%;
+}
+
+@supports selector(:has(*)) {
+    .dialog-modal:has(.outer-btn) {
+        overflow: visible;
+    }
+}
+
+.dialog-modal::backdrop {
+    --transition-duration: 300;
+    --backdrop-opacity: 1;
+
+    background-color: rgba(255, 255, 255, 0.85);
+    opacity: var(--backdrop-opacity);
+    transition: opacity calc(var(--transition-duration) * 1ms) ease-in-out;
+}
+
+.dialog-modal[data-transition="scale"] {
+    --scale: 0.7;
+    --opacity: 0;
+}
+
+.dialog-modal[data-transition="scale"].show {
+    --scale: 1;
+    --opacity: 1;
+}
+
+.dialog-modal[data-transition].show.close {
+    --opacity: 0;
+}
+
+.dialog-modal[data-transition]::backdrop {
+    --backdrop-opacity: 0;
+}
+
+.dialog-modal[data-transition].show::backdrop {
+    --backdrop-opacity: 1;
+}
+
+.dialog-modal[data-transition].show.close::backdrop {
+    --backdrop-opacity: 0;
+}
+/* END: Dialog Modal */
+
+/* START: Close btn */
+
+.x-close-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: none;
+    background: none;
+    font-size: 1.5rem;
+    height: 100%;
+    aspect-ratio: 1/1;
+    cursor: pointer;
+    transition: background 250ms ease-in-out;
+}
+
+.x-close-btn:hover {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.x-close-btn:active {
+    background: rgba(0, 0, 0, 0.7);
+}
+/* END: Close btn */

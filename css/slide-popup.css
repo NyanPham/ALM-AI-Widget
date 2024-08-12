@@ -1,0 +1,37 @@
+[data-slideup-popup] {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background: white;
+    box-shadow: 2px 5px 8px 2px rgba(0, 0, 0, 0.2);
+    will-change: transform;
+    transform: translate3d(0, 100%, 0);
+    transition: transform 1000ms ease-in-out;
+}
+
+[data-slideup-popup] .btn-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    color: white;
+    border: none;
+    border-radius: 3px;
+}
+
+[data-slideup-popup] .btn-grid [data-btn] {
+    width: 5rem;
+    padding-top: 0.35rem;
+    padding-bottom: 0.35rem;
+}
+
+[data-slideup-popup] .btn-grid [data-btn="confirm"] {
+    background: var(--primary-btn-background);
+}
+
+[data-slideup-popup] .btn-grid [data-btn="cancel"] {
+    background: var(--secondary-btn-background);
+}
+
+[data-slideup-popup].show {
+    transform: translate3d(0, 0, 0);
+}   

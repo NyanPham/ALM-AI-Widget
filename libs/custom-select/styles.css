@@ -1,0 +1,154 @@
+/* START: Layout styles */
+.custom-select {
+    position: relative;
+    width: 400px;
+    max-width: 100%;
+    color: #000;
+}
+
+.custom-select[data-disabled="true"] {
+    pointer-events: none;
+}
+
+.custom-select::after {
+    content: attr(data-loading-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 1);
+    pointer-events: none;
+    opacity: 0;
+
+    transition: opacity 250ms ease-in-out, background 250ms ease-in-out;
+}
+
+.custom-select.loading::after {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.select-button {
+    width: 100%;
+    background-color: #fff;
+    padding: 0.5em 1em;
+    border: 1px solid #caced1;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.custom-select[data-disabled="true"] .select-button {
+    color: gray;
+    border-color: gray;
+}
+
+.selected-value {
+    text-align: left;
+}
+
+.arrow {
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid #000;
+    transition: transform ease-in-out 0.3s;
+}
+/* END: Layout styles */
+
+/* START: Dropdown styles */
+.select-dropdown {
+    position: absolute;
+    list-style: none;
+    width: 100%;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    border: 1px solid #caced1;
+    border-radius: 4px;
+    padding: 10px;
+    margin-top: 10px;
+    max-height: 200px;
+    overflow-y: auto;
+    transition: 0.5s ease;
+    transform-origin: top;
+
+    transform: scaleY(0);
+    opacity: 0;
+    visibility: hidden;
+}
+
+.select-dropdown:focus-within {
+    box-shadow: 0 10px 25px rgba(94, 108, 233, 0.6);
+}
+
+.select-dropdown li {
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.select-dropdown li label {
+    width: 100%;
+    padding: 8px 10px;
+    cursor: pointer;
+}
+
+.select-dropdown::-webkit-scrollbar {
+    width: 7px;
+}
+
+.select-dropdown::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 25px;
+}
+
+.select-dropdown::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 25px;
+}
+
+.custom-select.active .arrow {
+    transform: rotate(180deg);
+}
+
+.custom-select.active .select-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: scaleY(1);
+}
+/* END: Dropdown styles */
+
+/* START: UX */
+.select-dropdown li,
+.select-dropdown input ~ label {
+    transition-property: background-color, color;
+    transition-duration: 250ms;
+    transition-timing-function: ease-in-out;
+    color: #333;
+}
+
+.select-dropdown li:hover,
+.select-dropdown input:checked ~ label {
+    background-color: #f2f2f2;
+}
+
+.select-dropdown input:focus ~ label {
+    background-color: #dfdfdf;
+}
+/* END: UX */
+
+/* START: Hide radio buttons */
+.select-dropdown input[type="radio"] {
+    position: absolute;
+    left: 0;
+    opacity: 0;
+}
+/* END: Hide radio buttons */
